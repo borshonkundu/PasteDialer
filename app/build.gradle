@@ -3,30 +3,29 @@ plugins {
 }
 
 android {
-    namespace 'com.example.pastedtmf'
-    compileSdk 33
+    compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.example.pastedtmf"
-        minSdk 21            // Android 5.0 Lollipop
-        targetSdk 33
+        applicationId "com.pastedialer.app"
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
-// Intentionally NO dependencies: no AppCompat, no Material, no Kotlin stdlib.
-dependencies { }
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+}
