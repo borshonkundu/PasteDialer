@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Paste Dialer</string>
+    <string name="notif_title">Paste Dialer overlay active</string>
+    <string name="notif_text">Tap to open settings</string>
+    <string name="empty_hint">Tap Paste to load a number</string>
+</resources>

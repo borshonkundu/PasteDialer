@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Draw the bubble/panel above the in-call screen -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Detect call state (ringing / off-hook / idle) -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Only used by the "Call" button in the app (dial number + pauses) -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Keeps the overlay service alive on Android 8+ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Invisible activity that briefly takes focus so Android 10+ lets us read the clipboard -->
+        <activity
+            android:name=".PasteActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@style/PasteTheme" />
+
+        <service
+            android:name=".FloatingService"
+            android:exported="false" />
+    </application>
+</manifest>
